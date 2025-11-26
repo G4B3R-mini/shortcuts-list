@@ -17,3 +17,11 @@ class AtalhosBackend:
             salvar_atalhos(self.atalhos)
             return True
         return False
+
+    def buscar(self, texto):
+        texto = texto.lower()
+        return {
+            atalho: desc
+            for atalho, desc in self.atalhos.items()
+            if texto in atalho.lower() or texto in desc.lower()
+        }
